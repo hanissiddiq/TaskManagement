@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#91f3f2",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#74d6d6",
+            "surface-dim": "#d6dbda",
+            "primary-container": "#4fb3b3",
+            "surface-container": "#eaefee",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e5e9e8",
+            "surface-container-highest": "#dfe3e3",
+            "secondary-fixed-dim": "#b7c8e1",
+            "tertiary": "#914c27",
+            "on-background": "#181c1c",
+            "on-surface": "#181c1c",
+            "secondary-container": "#d0e1fb",
+            "secondary-fixed": "#d3e4fe",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#733512",
+            "surface-tint": "#006a6a",
+            "on-secondary-fixed-variant": "#38485d",
+            "on-secondary-container": "#54647a",
+            "secondary": "#505f76",
+            "tertiary-fixed-dim": "#ffb693",
+            "primary": "#006a6a",
+            "outline-variant": "#bdc9c8",
+            "on-primary-fixed": "#002020",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#351000",
+            "surface-variant": "#dfe3e3",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#3e4949",
+            "outline": "#6e7979",
+            "tertiary-container": "#e48f65",
+            "surface": "#f6faf9",
+            "inverse-surface": "#2c3131",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#004f50",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#0b1c30",
+            "background": "#f6faf9",
+            "surface-bright": "#f6faf9",
+            "on-tertiary-container": "#632906",
+            "inverse-on-surface": "#edf2f1",
+            "inverse-primary": "#74d6d6",
+            "on-primary-container": "#004242",
+            "surface-container-low": "#f0f4f4",
+            "tertiary-fixed": "#ffdbcc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "unit": "8px",
+            "xl": "64px",
+            "xs": "4px",
+            "lg": "48px",
+            "margin": "32px",
+            "gutter": "24px",
+            "sm": "12px",
+            "md": "24px"
+          },
+          "fontFamily": {
+            "headline-md": ["Manrope"],
+            "headline-xl": ["Manrope"],
+            "body-lg": ["Manrope"],
+            "label-md": ["Manrope"],
+            "headline-lg": ["Manrope"],
+            "label-sm": ["Manrope"],
+            "body-md": ["Manrope"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #f6faf9;
+      color: #181c1c;
+    }
+    .neumorphic-extruded {
+      box-shadow: 10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff;
+    }
+    .neumorphic-inset {
+      box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+    }
+    .neumorphic-button:active {
+      box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+      transform: scale(0.98);
+    }
+    .clay-volume {
+      box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.4), 8px 8px 16px #d1d9e6;
+    }
+  </style>
+</head>
+<body class="font-body-md antialiased min-h-screen">
+<nav class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-40 bg-slate-100/80 backdrop-blur-md shadow-[0px_4px_10px_rgba(209,217,230,0.5)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container cursor-pointer p-2 neumorphic-extruded rounded-full neumorphic-button">arrow_back</span>
+<span class="text-2xl font-extrabold text-[#4FB3B3] tracking-tight font-headline-md">TaskFlow</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<span class="text-[#4FB3B3] font-bold font-label-md cursor-pointer">Tasks</span>
+<span class="text-slate-500 font-label-md cursor-pointer hover:scale-105 transition-transform duration-200">Dashboard</span>
+<span class="text-slate-500 font-label-md cursor-pointer hover:scale-105 transition-transform duration-200">Analytics</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-500 neumorphic-button cursor-pointer p-2 rounded-xl neumorphic-extruded">notifications</span>
+<span class="material-symbols-outlined text-slate-500 neumorphic-button cursor-pointer p-2 rounded-xl neumorphic-extruded">settings</span>
+</div>
+</div>
+</nav>
+<main class="max-w-6xl mx-auto px-margin py-lg space-y-lg">
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-start">
+<div class="lg:col-span-2 space-y-gutter">
+<div class="neumorphic-extruded bg-surface rounded-[32px] p-8 space-y-md">
+<div class="flex justify-between items-start">
+<h1 class="font-headline-xl text-on-surface">Redesign Client Dashboard</h1>
+<div class="flex gap-2">
+<span class="px-4 py-2 neumorphic-extruded bg-primary-container text-white rounded-full font-label-sm uppercase tracking-wider">High Priority</span>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-on-surface-variant">Task Description</h3>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+              Synthesize the current feedback from the engineering team to overhaul the user management module. The goal is to reduce cognitive load by implementing a neumorphic design system that emphasizes physical depth and tactile feedback. Ensure all components follow the 8px spatial rhythm and maintain accessibility standards.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md pt-4">
+<div class="neumorphic-inset bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-white/50">
+<span class="material-symbols-outlined text-primary text-3xl">calendar_today</span>
+<div>
+<p class="font-label-sm text-outline uppercase">Deadline</p>
+<p class="font-headline-md text-on-surface">Oct 24, 2024</p>
+</div>
+</div>
+<div class="neumorphic-inset bg-surface-container-low p-6 rounded-2xl flex items-center gap-4 border border-white/50">
+<span class="material-symbols-outlined text-primary text-3xl">update</span>
+<div>
+<p class="font-label-sm text-outline uppercase">Time Estimated</p>
+<p class="font-headline-md text-on-surface">12 Hours</p>
+</div>
+</div>
+</div>
+</div>
+<div class="neumorphic-extruded bg-surface rounded-[32px] p-8 space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-on-surface">Task Completion Comparison</h2>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-4">
+<p class="font-label-md text-on-surface-variant text-center">Before</p>
+<div class="relative aspect-video rounded-3xl neumorphic-inset bg-surface-container overflow-hidden group cursor-pointer flex items-center justify-center border-2 border-dashed border-outline/20">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A detailed workspace showing a cluttered digital interface with many flat, brightly colored windows overlapping each other in a disorganized manner. The environment is a clean minimalist office with soft natural lighting coming from a side window. The overall mood is slightly chaotic but professionally photographed to show a 'before' state of a UI design project." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwE03gkfAEc4AqwSGIM9kzZ6svpQWCoKsResXuVbpErl_kskEsAlDY15l-4UmJIAETpNAwvvW5NomBkUfBcfRAGANuNpacmRIEyepQg7UkgMuMxCJpjF6B-AqvTcXix290ihvDpjZ1i_7R5544SUeYiHuCgdRt9t9-LsljYNlAeKzcNnB7TAHsbveRRCFYDJycObSjO6Ch4s9eST_-ba31ZeG1Ey_hmb0S27hz0b56WXYEfk122lQMuXUD0pk4GmZuDm2iRymyUo0"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-4xl bg-primary-container/80 p-4 rounded-full shadow-lg">visibility</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<p class="font-label-md text-on-surface-variant text-center">After</p>
+<div class="relative aspect-video rounded-3xl neumorphic-extruded bg-surface-container-low flex flex-col items-center justify-center p-8 group cursor-pointer hover:scale-[1.02] transition-all border border-white/80">
+<div class="neumorphic-inset p-6 rounded-full mb-4 group-hover:bg-primary-fixed/30 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl">cloud_upload</span>
+</div>
+<p class="font-label-md text-on-surface-variant">Upload Final Design</p>
+<p class="text-[10px] text-outline mt-1">PNG, JPG up to 10MB</p>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-gutter">
+<div class="neumorphic-extruded bg-surface rounded-[32px] p-6 space-y-md">
+<h3 class="font-headline-md text-on-surface">Assigned Team</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 neumorphic-inset rounded-2xl">
+<img class="w-12 h-12 rounded-full object-cover neumorphic-extruded border-2 border-white" data-alt="Close up portrait of a professional designer with a friendly expression. The lighting is soft and warm, typical of a high-end corporate headshot. He is set against a clean, out-of-focus office background that emphasizes a serene and organized workspace. The color palette is composed of soft teals and neutral grays to match the app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaIM0FW4L_SkpifsqdCrTEQZFdmCzELWxgiHbX14BJX5tGjOjBQ7BaxiTmniwUK8SIkuucS5hi2rh-3fQxrQBQ3ZlQ5JZq-mxITwFpegO2ZFkVhzbMF0l12nTeJUsPl71k3x5dDcUT9bHQKfQ-rbkTMfzazz-Q1b8tTnBMIV7KNNF20hntmYd6t5h3hLDE8qgzZHPeYzXwWDk2KWZK3LJAtT2OzNFyx0kwVBeI9Q9V1i7pg5S7F2Rgj7yqiZc7FvyutkGmESIodAM"/>
+<div>
+<p class="font-label-md text-on-surface">Alex Morgan</p>
+<p class="text-[12px] text-outline">Lead Designer</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 neumorphic-inset rounded-2xl">
+<img class="w-12 h-12 rounded-full object-cover neumorphic-extruded border-2 border-white" data-alt="Portrait of a female creative director with a confident smile, wearing professional modern attire. The image has a light, airy quality with soft-focus office greenery in the background. The lighting is bright and even, highlighting a clean and productive atmosphere. Soft shadows and a high-key aesthetic dominate the composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhijjNzIXroQkGXNHkRCSKxhuRkQYiPwSM5K9g2C_ACMe25UZPp6cEiype5qA-2Cq-6YHoEFFYWQdRr9ji7L2vN5HTV8Le2HhaoDDKih6iicrcX8_7g-xxdlC2rjRyT_wNccFt4qswYHbC-woe0TCPn0mt0VYXtTqWzvOMrZ4XoFvBTt-nGwI4ZbwYI-U2tBA7zsCa3K3rcu5M49SeDc_KfckQwISuam6ZZrJRgUEyOMx9dzMbEDcdyOYjOy7s9_yOCZ1JGecu_Jc"/>
+<div>
+<p class="font-label-md text-on-surface">Sarah Chen</p>
+<p class="text-[12px] text-outline">UX Researcher</p>
+</div>
+</div>
+</div>
+</div>
+<div class="neumorphic-extruded bg-surface rounded-[32px] p-6 space-y-md">
+<h3 class="font-headline-md text-on-surface">Subtasks</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-4 neumorphic-inset rounded-xl group cursor-pointer">
+<div class="w-5 h-5 rounded neumorphic-extruded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-white" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-md text-on-surface-variant line-through opacity-60">Review wireframes</span>
+</div>
+<div class="flex items-center gap-3 p-4 neumorphic-extruded bg-surface rounded-xl group cursor-pointer">
+<div class="w-5 h-5 rounded neumorphic-inset bg-surface-container"></div>
+<span class="font-label-md text-on-surface-variant">Apply Neumorphic styles</span>
+</div>
+<div class="flex items-center gap-3 p-4 neumorphic-extruded bg-surface rounded-xl group cursor-pointer">
+<div class="w-5 h-5 rounded neumorphic-inset bg-surface-container"></div>
+<span class="font-label-md text-on-surface-variant">Internal feedback loop</span>
+</div>
+</div>
+</div>
+<button class="w-full py-5 neumorphic-extruded clay-volume bg-primary-container text-white font-headline-md rounded-[24px] neumorphic-button flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">verified</span>
+          Complete Task
+        </button>
+</div>
+</section>
+</main>
+<div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-50">
+<div class="neumorphic-extruded bg-surface/90 backdrop-blur-md rounded-full px-8 py-4 flex justify-between items-center">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="material-symbols-outlined text-outline">assignment</span>
+<div class="p-3 bg-primary-container rounded-full neumorphic-extruded -mt-12 border-4 border-surface">
+<span class="material-symbols-outlined text-white">add</span>
+</div>
+<span class="material-symbols-outlined text-outline">leaderboard</span>
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+</div>
+</body></html>

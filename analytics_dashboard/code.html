@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .neumorphic-convex {
+            box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-concave {
+            box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+        }
+        .clay-progress {
+            background: #4FB3B3;
+            box-shadow: inset 0px 2px 4px rgba(255, 255, 255, 0.4), 4px 4px 8px rgba(79, 179, 179, 0.3);
+        }
+        body {
+            background-color: #f6faf9;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#91f3f2",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#74d6d6",
+                        "surface-dim": "#d6dbda",
+                        "primary-container": "#4fb3b3",
+                        "surface-container": "#eaefee",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e5e9e8",
+                        "surface-container-highest": "#dfe3e3",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "tertiary": "#914c27",
+                        "on-background": "#181c1c",
+                        "on-surface": "#181c1c",
+                        "secondary-container": "#d0e1fb",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#733512",
+                        "surface-tint": "#006a6a",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#54647a",
+                        "secondary": "#505f76",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "primary": "#006a6a",
+                        "outline-variant": "#bdc9c8",
+                        "on-primary-fixed": "#002020",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-variant": "#dfe3e3",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#3e4949",
+                        "outline": "#6e7979",
+                        "tertiary-container": "#e48f65",
+                        "surface": "#f6faf9",
+                        "inverse-surface": "#2c3131",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f50",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "background": "#f6faf9",
+                        "surface-bright": "#f6faf9",
+                        "on-tertiary-container": "#632906",
+                        "inverse-on-surface": "#edf2f1",
+                        "inverse-primary": "#74d6d6",
+                        "on-primary-container": "#004242",
+                        "surface-container-low": "#f0f4f4",
+                        "tertiary-fixed": "#ffdbcc"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-40 bg-slate-100/80 backdrop-blur-md shadow-[0px_4px_10px_rgba(209,217,230,0.5)] dark:shadow-none font-manrope antialiased">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-extrabold text-[#4FB3B3] tracking-tight">TaskFlow</span>
+<div class="hidden md:flex ml-8 gap-6">
+<button class="text-slate-500 dark:text-slate-400 font-semibold hover:scale-105 transition-transform">Overview</button>
+<button class="text-[#4FB3B3] font-bold hover:scale-105 transition-transform">Analytics</button>
+<button class="text-slate-500 dark:text-slate-400 font-semibold hover:scale-105 transition-transform">Team</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="neumorphic-concave rounded-full px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 md:w-64" placeholder="Search data..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-500 hover:scale-105 transition-transform">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:scale-105 transition-transform">settings</button>
+<div class="w-10 h-10 rounded-full neumorphic-convex p-0.5">
+<img alt="User Avatar" class="w-full h-full rounded-full object-cover" data-alt="A close-up professional portrait of a young man with a friendly expression, set against a soft-focus office background. The lighting is bright and even, matching a high-end light-mode UI aesthetic. The overall mood is approachable, organized, and focused, utilizing a clean and professional color palette of soft whites and teals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oEQ-KD2N3_S-2dFwfriRceWqrmiy4IEZOwbchAt5w5a40IoGhNHwxHwVztThBueE8UhD4rdZ_z6eM045uU-2C90WrcxFHTtlwXKrPOh4Xbl-spA67KlzoNJTFZiBZYSI7VxdlNUSmsfQKZ-IzSfLPkGcWe5iUi07QKRzNWYyhgGCQz3769QXaPFwR6HWlvk-g6pkVqqi7NBXH0OjJERvEZS1vb_0-t_qrZTU3iBnHdAjurSOfUKo8_DXL4ndgiX9FfPvhDthQjU"/>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col z-50 bg-slate-100 dark:bg-slate-900 h-screen w-64 border-r-0 rounded-r-[32px] px-6 py-8 space-y-4 shadow-[10px_10px_20px_#d1d9e6,-10px_-10px_20px_#ffffff] dark:shadow-none hidden md:flex pt-24">
+<div class="flex flex-col items-center mb-8">
+<div class="w-20 h-20 rounded-2xl neumorphic-convex mb-4 flex items-center justify-center bg-surface">
+<img alt="Alex Morgan" class="w-16 h-16 rounded-xl object-cover" data-alt="A professional headshot of a user named Alex Morgan, showing a calm and confident expression. The image is framed with a modern, rounded-corner aesthetic, emphasizing a light-filled environment with soft pastel accents. The style is minimalist and high-quality, fitting perfectly into a task management application's sidebar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLI5meI__78XK3H1lTuN7oACrILW-x-K3PGiuu3BgK8BV6gtfrgr6qtxJgRsy7MP7kdmBKE9E7Rbaro1cGWzmr3zRYwy6x1v0-CY1Z611VaFZJ4rZjhk01iHgoKjaAhSuKWdD3Z6F_LznPumMV9ygG9rwbk2hSqV2soZRG-dwxMgStLoGiyZWxqaQxPJ-cvFfkTEpRE36YsLKfHtucx3OVMJGdqBiRsrsI_gLesVPdsowgR5MR889GCoVfuRHAlgXQdE_4knQuNds"/>
+</div>
+<h3 class="font-headline-md text-on-surface">Alex Morgan</h3>
+<p class="text-label-sm text-primary">Pro Plan</p>
+</div>
+<nav class="space-y-4 flex-grow">
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-manrope font-semibold text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-manrope font-semibold text-sm">Tasks</span>
+</a>
+<a class="flex items-center gap-3 p-4 bg-slate-100 shadow-[inset_6px_6px_12px_#d1d9e6,inset_-6px_-6px_12px_#ffffff] text-[#4FB3B3] rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-manrope font-semibold text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope font-semibold text-sm">Settings</span>
+</a>
+</nav>
+<button class="w-full py-4 px-6 neumorphic-convex rounded-2xl text-primary font-bold hover:scale-105 active:scale-95 transition-all mb-8">
+                Create New Task
+            </button>
+<div class="border-t border-surface-container-high pt-4 space-y-2">
+<a class="flex items-center gap-3 p-2 text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-3 p-2 text-slate-500 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow md:ml-64 p-8 min-h-screen">
+<header class="mb-10">
+<h1 class="font-headline-xl text-on-surface">Performance Analytics</h1>
+<p class="font-body-lg text-on-surface-variant">Your productivity summary for the last 30 days</p>
+</header>
+<!-- Top Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+<div class="neumorphic-convex p-6 rounded-[24px] bg-surface flex flex-col">
+<span class="text-label-sm text-outline mb-2">Total Tasks</span>
+<span class="text-headline-lg text-primary">124</span>
+<span class="text-xs text-primary font-bold mt-2">↑ 12% vs last month</span>
+</div>
+<div class="neumorphic-convex p-6 rounded-[24px] bg-surface flex flex-col">
+<span class="text-label-sm text-outline mb-2">Completion Rate</span>
+<span class="text-headline-lg text-[#54647a]">88%</span>
+<span class="text-xs text-primary font-bold mt-2">↑ 4% improvement</span>
+</div>
+<div class="neumorphic-convex p-6 rounded-[24px] bg-surface flex flex-col">
+<span class="text-label-sm text-outline mb-2">Focus Time</span>
+<span class="text-headline-lg text-on-tertiary-container">42h</span>
+<span class="text-xs text-outline mt-2">Personal record</span>
+</div>
+<div class="neumorphic-convex p-6 rounded-[24px] bg-surface flex flex-col">
+<span class="text-label-sm text-outline mb-2">Efficiency</span>
+<span class="text-headline-lg text-[#4FB3B3]">High</span>
+<span class="text-xs text-primary font-bold mt-2">Optimal flow detected</span>
+</div>
+</div>
+<!-- Main Charts Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+<!-- Main Productivity Chart -->
+<div class="lg:col-span-2 neumorphic-convex p-8 rounded-[32px] bg-surface">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-md text-on-surface">Weekly Productivity</h2>
+<div class="flex gap-2">
+<button class="neumorphic-concave px-4 py-2 rounded-xl text-xs font-bold text-primary">Line</button>
+<button class="neumorphic-convex px-4 py-2 rounded-xl text-xs font-bold text-outline hover:text-primary transition-colors">Bar</button>
+</div>
+</div>
+<!-- Mock Line Chart -->
+<div class="w-full h-64 flex items-end justify-between px-4 pb-4 neumorphic-concave rounded-2xl relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
+<path d="M0,150 Q100,140 200,100 T400,80 T600,120 T800,40" fill="none" stroke="#4FB3B3" stroke-linecap="round" stroke-width="4"></path>
+<path d="M0,150 Q100,140 200,100 T400,80 T600,120 T800,40 V200 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#4FB3B3;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#4FB3B3;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex flex-col items-center z-10 w-full justify-between absolute bottom-4 left-0 right-0 px-8">
+<div class="flex w-full justify-between text-xs text-outline font-bold">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Breakdown by Category (Pie Chart) -->
+<div class="neumorphic-convex p-8 rounded-[32px] bg-surface">
+<h2 class="font-headline-md text-on-surface mb-8">Task Category</h2>
+<div class="flex flex-col items-center">
+<!-- Mock Pie Chart -->
+<div class="relative w-48 h-48 rounded-full neumorphic-convex flex items-center justify-center mb-8 border-[12px] border-surface">
+<div class="absolute inset-0 rounded-full border-[16px] border-primary-container" style="clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 0 100%, 0 70%);"></div>
+<div class="absolute inset-0 rounded-full border-[16px] border-secondary-container" style="clip-path: polygon(50% 50%, 0 70%, 0 0, 50% 0);"></div>
+<div class="w-24 h-24 rounded-full neumorphic-concave bg-surface flex items-center justify-center">
+<span class="text-headline-md text-on-surface-variant">75%</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-label-md text-on-surface-variant">Development</span>
+</div>
+<span class="text-label-md font-bold">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-label-md text-on-surface-variant">Design</span>
+</div>
+<span class="text-label-md font-bold">30%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-tertiary-container"></div>
+<span class="text-label-md text-on-surface-variant">Marketing</span>
+</div>
+<span class="text-label-md font-bold">25%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Weekly Goal & Recent Insights -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Weekly Goal Progress -->
+<div class="neumorphic-convex p-8 rounded-[32px] bg-surface">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-on-surface">Weekly Goal</h2>
+<span class="text-label-md text-primary font-bold">14 / 20 Tasks</span>
+</div>
+<div class="space-y-6">
+<div class="h-8 w-full neumorphic-concave rounded-full p-1.5 overflow-hidden">
+<div class="h-full w-[70%] clay-progress rounded-full relative">
+<div class="absolute top-0 left-0 w-full h-[30%] bg-white/20 rounded-full blur-[1px]"></div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-grow p-4 neumorphic-concave rounded-2xl">
+<p class="text-xs text-outline font-bold mb-1">Time to Goal</p>
+<p class="text-body-md font-bold text-on-surface">2 Days Remaining</p>
+</div>
+<div class="flex-grow p-4 neumorphic-concave rounded-2xl">
+<p class="text-xs text-outline font-bold mb-1">Pace</p>
+<p class="text-body-md font-bold text-on-surface">On Track</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Insights Bento Card -->
+<div class="neumorphic-convex p-8 rounded-[32px] bg-surface flex flex-col justify-between">
+<h2 class="font-headline-md text-on-surface mb-4">Smart Insights</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] transition-all rounded-2xl group">
+<div class="w-12 h-12 rounded-xl neumorphic-convex flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div>
+<h4 class="text-label-md text-on-surface">Peak Productivity</h4>
+<p class="text-xs text-outline">You are most productive between 9:00 AM and 11:30 AM. Schedule your deep work then.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] transition-all rounded-2xl group">
+<div class="w-12 h-12 rounded-xl neumorphic-convex flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<h4 class="text-label-md text-on-surface">Consistency Spike</h4>
+<p class="text-xs text-outline">You've hit your daily goal 5 days in a row. Keep the streak alive!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-slate-100/90 backdrop-blur-md flex items-center justify-around px-4 z-50 shadow-[0px_-4px_10px_rgba(209,217,230,0.5)]">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-bold">Tasks</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#4FB3B3]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="text-[10px] font-bold">Analytics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

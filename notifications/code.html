@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications - TaskFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002020",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "background": "#f6faf9",
+                    "secondary-fixed": "#d3e4fe",
+                    "inverse-primary": "#74d6d6",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d6dbda",
+                    "surface-container-low": "#f0f4f4",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "tertiary-container": "#e48f65",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-variant": "#dfe3e3",
+                    "primary-fixed-dim": "#74d6d6",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9e8",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004f50",
+                    "surface-container": "#eaefee",
+                    "tertiary": "#914c27",
+                    "surface-bright": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "on-background": "#181c1c",
+                    "primary-container": "#4fb3b3",
+                    "on-tertiary-container": "#632906",
+                    "on-surface-variant": "#3e4949",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2c3131",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "inverse-on-surface": "#edf2f1",
+                    "secondary-container": "#d0e1fb",
+                    "primary": "#006a6a",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#91f3f2",
+                    "outline": "#6e7979",
+                    "on-secondary-container": "#54647a",
+                    "secondary": "#505f76",
+                    "on-primary-container": "#004242",
+                    "surface-container-highest": "#dfe3e3",
+                    "surface": "#f6faf9",
+                    "outline-variant": "#bdc9c8",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "xl": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "margin": "32px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neumorphic-convex {
+            box-shadow: 6px 6px 12px #D1D9E6, -6px -6px 12px #FFFFFF;
+        }
+        .neumorphic-concave {
+            box-shadow: inset 4px 4px 8px #D1D9E6, inset -4px -4px 8px #FFFFFF;
+        }
+        .clay-button {
+            box-shadow: 6px 6px 12px #D1D9E6, -6px -6px 12px #FFFFFF, inset 2px 2px 4px rgba(255,255,255,0.4);
+        }
+        .clay-button:active {
+            box-shadow: inset 4px 4px 8px #D1D9E6, inset -4px -4px 8px #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-[#F0F2F5] min-h-screen font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-[#F0F2F5] border-b border-white/40 shadow-[6px_6px_12px_#D1D9E6,-6px_-6px_12px_#FFFFFF] z-40">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="text-xl font-bold text-[#4FB3B3] font-manrope">TaskFlow</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex neumorphic-concave rounded-full px-4 py-2 items-center gap-2">
+<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-manrope" placeholder="Search tasks..." type="text"/>
+</div>
+<div class="w-10 h-10 rounded-full neumorphic-convex flex items-center justify-center hover:scale-105 transition-transform active:shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] cursor-pointer">
+<span class="material-symbols-outlined text-[#4FB3B3]" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 pt-10 pb-32">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-2">Notifications</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Stay updated with your team's latest activities.</p>
+</div>
+<button class="clay-button bg-[#F0F2F5] text-[#4FB3B3] font-label-md px-6 py-3 rounded-2xl flex items-center gap-2 transition-all hover:scale-105 group">
+<span class="material-symbols-outlined text-lg" data-icon="done_all">done_all</span>
+                Mark all as read
+            </button>
+</div>
+<!-- Notification List -->
+<div class="space-y-6">
+<!-- New Notification Group: Today -->
+<div class="space-y-4">
+<h2 class="text-label-sm font-label-sm text-slate-400 uppercase tracking-widest px-2">Today</h2>
+<!-- Notification Item 1 -->
+<div class="neumorphic-convex rounded-[24px] p-5 flex items-start gap-5 bg-[#F0F2F5] hover:scale-[1.01] transition-transform cursor-pointer border border-white/20">
+<div class="w-12 h-12 rounded-2xl neumorphic-concave flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#4FB3B3]" data-icon="assignment_ind">assignment_ind</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">New task assigned by Sarah Chen</h3>
+<span class="text-label-sm font-label-sm text-slate-400">2m ago</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-3">You have been assigned to the "Q4 Marketing Strategy" high-priority task.</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full neumorphic-concave text-[10px] font-bold text-[#4FB3B3] uppercase">Marketing</span>
+<span class="px-3 py-1 rounded-full neumorphic-concave text-[10px] font-bold text-error uppercase">High Priority</span>
+</div>
+</div>
+<div class="w-2 h-2 rounded-full bg-[#4FB3B3] shadow-[0_0_8px_#4FB3B3] mt-2"></div>
+</div>
+<!-- Notification Item 2 -->
+<div class="neumorphic-convex rounded-[24px] p-5 flex items-start gap-5 bg-[#F0F2F5] hover:scale-[1.01] transition-transform cursor-pointer border border-white/20">
+<div class="w-12 h-12 rounded-2xl neumorphic-concave flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[#4FB3B3]" data-icon="task_alt">task_alt</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">Task "Redesign Dashboard" completed</h3>
+<span class="text-label-sm font-label-sm text-slate-400">1h ago</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">The final UI polish for the main dashboard view has been approved and merged.</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-[#4FB3B3] shadow-[0_0_8px_#4FB3B3] mt-2"></div>
+</div>
+</div>
+<!-- New Notification Group: Yesterday -->
+<div class="space-y-4 pt-4">
+<h2 class="text-label-sm font-label-sm text-slate-400 uppercase tracking-widest px-2">Yesterday</h2>
+<!-- Notification Item 3 -->
+<div class="neumorphic-convex rounded-[24px] p-5 flex items-start gap-5 bg-[#F0F2F5] opacity-80 hover:opacity-100 transition-all cursor-pointer border border-white/20">
+<div class="w-12 h-12 rounded-2xl neumorphic-concave flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-slate-400" data-icon="person_add">person_add</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">New team member Alex Morgan added</h3>
+<span class="text-label-sm font-label-sm text-slate-400">Yesterday, 4:30 PM</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">Alex has joined the "Product Design" team. Say hi!</p>
+<div class="flex items-center -space-x-3">
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-[#F0F2F5] neumorphic-convex" data-alt="A professional studio headshot of a diverse group of creative professionals in a brightly lit modern office setting. The lighting is soft and natural, emphasizing a friendly and collaborative atmosphere. The style is clean and high-definition, consistent with a premium productivity application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBidbSQbZqMyRc_22yScaCcZkt71g9f3GX9ftVVjvdSFqLgpViyd7LeTH9g3-5W87HeZtEiUHPMGgRYjx-lwF4q_sTZtY1CiBVMGyhGF2qyFB8ReUCbmDq5WmID8YIciKu0GtuCAazKEjNON1W5ecYrXPAKCRThNWzGBQiJHIT2AAwU4UQilYMjQG1hMIBbzCsQx4fsMRgeFAzvaGKcwG_JcWzRW2_21UbJ8GMPgUAOelsUx_9qZGSKq-KFN73Bt1B8g3X0ZhRqX6g"/>
+<img alt="Team member" class="w-8 h-8 rounded-full border-2 border-[#F0F2F5] neumorphic-convex" data-alt="A close-up shot of a modern office workstation with a sleek laptop, a potted plant, and a cup of coffee. The environment is minimalist and organized, bathed in warm, soft sunlight streaming through a window. The overall mood is peaceful and productive, reflecting a serene workspace aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv6RGKvD6DiGZ44lgx4zO1zjf1g4SFBhRlYustTZ6kmZ6tunXloJLD48DHQ_f_uZM_QqYDcnEmbGBphl_SywCEuiLm8AtnG9M7iLcgsxzQWFaEXbipfLA52wqsAZYVByvTqoX_boAr3N1teUScHgvOtHK5mFYsCnXDFSqU4gC3bs0kFQS2rRZ6wIkwpdcsaI-EcQtABHoXqOis7tXeh-MedJC35VVxm5j6RW4fa9gPfA8dubVGYHF6Q2kfnVDhLx8qLsE71EoXLoM"/>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold border-2 border-[#F0F2F5] neumorphic-convex text-on-secondary-container">+12</div>
+</div>
+</div>
+</div>
+<!-- Notification Item 4 -->
+<div class="neumorphic-convex rounded-[24px] p-5 flex items-start gap-5 bg-[#F0F2F5] opacity-80 hover:opacity-100 transition-all cursor-pointer border border-white/20">
+<div class="w-12 h-12 rounded-2xl neumorphic-concave flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-slate-400" data-icon="comment">comment</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-body-lg text-on-surface">New comment on "Database Migration"</h3>
+<span class="text-label-sm font-label-sm text-slate-400">Yesterday, 11:15 AM</span>
+</div>
+<div class="neumorphic-concave rounded-xl p-3 mt-2 italic text-body-md text-slate-500">
+                            "I've updated the schema to include the new user preference flags. PTAL when you have a moment."
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Illustration (Decorative) -->
+<div class="mt-20 text-center flex flex-col items-center">
+<div class="w-32 h-32 rounded-full neumorphic-concave flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-5xl text-slate-200" data-icon="notifications_off" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications_off</span>
+</div>
+<p class="text-label-md font-label-md text-slate-300">You've caught up with all important updates.</p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#F0F2F5] border-t border-white/50 shadow-[0_-10px_20px_rgba(209,217,230,0.5)] md:hidden">
+<div class="flex justify-around items-center px-4 pb-6 pt-3">
+<div class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-manrope font-semibold">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-[10px] font-manrope font-semibold">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-[10px] font-manrope font-semibold">Team</span>
+</div>
+<!-- Active Tab: Notifications -->
+<div class="flex flex-col items-center justify-center text-[#4FB3B3] bg-[#F0F2F5] shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] rounded-2xl px-5 py-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-manrope font-semibold">Notifications</span>
+</div>
+</div>
+</nav>
+<!-- Desktop Floating Navigation (Visual Polish) -->
+<div class="hidden md:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col gap-6 p-4 rounded-3xl neumorphic-convex bg-[#F0F2F5] z-50">
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:text-[#4FB3B3] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</div>
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:text-[#4FB3B3] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+</div>
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center text-slate-400 hover:text-[#4FB3B3] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center text-[#4FB3B3] neumorphic-concave cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</div>
+</div>
+</body></html>

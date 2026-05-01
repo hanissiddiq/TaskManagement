@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskFlow - Add Employee</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002020",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "background": "#f6faf9",
+                    "secondary-fixed": "#d3e4fe",
+                    "inverse-primary": "#74d6d6",
+                    "tertiary-fixed": "#ffdbcc",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d6dbda",
+                    "surface-container-low": "#f0f4f4",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "tertiary-container": "#e48f65",
+                    "on-tertiary-fixed": "#351000",
+                    "surface-variant": "#dfe3e3",
+                    "primary-fixed-dim": "#74d6d6",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e5e9e8",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004f50",
+                    "surface-container": "#eaefee",
+                    "tertiary": "#914c27",
+                    "surface-bright": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-error-container": "#93000a",
+                    "on-background": "#181c1c",
+                    "primary-container": "#4fb3b3",
+                    "on-tertiary-container": "#632906",
+                    "on-surface-variant": "#3e4949",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2c3131",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "inverse-on-surface": "#edf2f1",
+                    "secondary-container": "#d0e1fb",
+                    "primary": "#006a6a",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#91f3f2",
+                    "outline": "#6e7979",
+                    "on-secondary-container": "#54647a",
+                    "secondary": "#505f76",
+                    "on-primary-container": "#004242",
+                    "surface-container-highest": "#dfe3e3",
+                    "surface": "#f6faf9",
+                    "outline-variant": "#bdc9c8",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "xl": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "margin": "32px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .neumorphic-convex {
+            box-shadow: 6px 6px 12px #D1D9E6, -6px -6px 12px #FFFFFF;
+        }
+        .neumorphic-concave {
+            box-shadow: inset 4px 4px 8px #D1D9E6, inset -4px -4px 8px #FFFFFF;
+        }
+        .clay-button {
+            background-color: #4FB3B3;
+            box-shadow: 6px 6px 12px #D1D9E6, -6px -6px 12px #FFFFFF, inset 2px 2px 4px rgba(255,255,255,0.4);
+        }
+        .clay-button:active {
+            box-shadow: inset 4px 4px 8px #3a8585, inset -4px -4px 8px #64e1e1;
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body class="bg-[#F0F2F5] font-body-md text-on-surface min-h-screen flex flex-col md:flex-row">
+<!-- Top Navigation Bar (Mobile & Desktop Header) -->
+<header class="w-full top-0 sticky z-50 bg-[#F0F2F5] border-b border-white/40 flex justify-between items-center px-6 py-4 shadow-[6px_6px_12px_#D1D9E6,-6px_-6px_12px_#FFFFFF]">
+<div class="text-xl font-bold text-[#4FB3B3] font-headline-md">TaskFlow</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-8">
+<a class="text-[#4FB3B3] font-bold font-label-md transition-transform hover:scale-105" href="#">Dashboard</a>
+<a class="text-slate-500 font-label-md transition-transform hover:scale-105" href="#">Tasks</a>
+<a class="text-slate-500 font-label-md transition-transform hover:scale-105" href="#">Team</a>
+<a class="text-slate-500 font-label-md transition-transform hover:scale-105" href="#">Notifications</a>
+</div>
+<span class="material-symbols-outlined text-slate-500 text-2xl cursor-pointer hover:scale-105 transition-transform" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar Navigation (Desktop Only) -->
+<aside class="hidden md:flex flex-col w-64 p-6 gap-4 bg-[#F0F2F5]">
+<nav class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-3 text-slate-500 rounded-xl transition-all hover:scale-105">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 rounded-xl transition-all hover:scale-105">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md">Tasks</span>
+</div>
+<!-- Active Team Tab -->
+<div class="flex flex-col items-start justify-center text-[#4FB3B3] bg-[#F0F2F5] shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] rounded-2xl px-5 py-3 gap-3">
+<div class="flex items-center gap-3 w-full">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md font-bold">Team</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 rounded-xl transition-all hover:scale-105">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-md">Notifications</span>
+</div>
+</nav>
+<div class="mt-auto neumorphic-convex rounded-2xl p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="help">help</span>
+</div>
+<span class="font-label-md text-on-surface">Support</span>
+</div>
+<p class="text-[10px] text-slate-400">Need help with the platform? Our team is here 24/7.</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-6 md:p-12 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<!-- Header Section -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-on-surface mb-2">Add New Employee</h1>
+<p class="font-body-md text-slate-500">Expand your workspace by inviting a new team member.</p>
+</div>
+<div class="flex -space-x-4 overflow-hidden">
+<img class="inline-block h-10 w-10 rounded-full ring-4 ring-[#F0F2F5]" data-alt="A portrait of a professional woman smiling in a bright, modern office setting. The image is bathed in soft, natural daylight, emphasizing a calm and productive corporate atmosphere. Her expression is friendly and welcoming, consistent with a high-end team management software user interface. The background is softly blurred to maintain focus on the subject while suggesting an organized workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0NX8qRvRf54LjYDM0d_ZvTIiOoTT9qZNcUCUmWCwiWlm84py7RSAjzqrCYo8VRkaO5nUT5nkS2PQVy0yz3vQzeF-0wu1bzn11czWDIZ_wc3v_I-nH1B-NuMnUKlHLWbmbicChOm9_-JxEEdhJ6M7aQI7JaATXyqDtfIoGrVmjBnhqgnlTUC-DMnnADETu3gC7cgZ7jnJ8Zx8eiJofyW_ll4mv6e3_VQDo-tElcB1WSD7pApd4I0c3lxzAp_hNqKT8e4NGy1lN9tQ"/>
+<img class="inline-block h-10 w-10 rounded-full ring-4 ring-[#F0F2F5]" data-alt="A cheerful male professional in a clean, minimalist studio environment with a light grey background. He is wearing a modern teal sweater that complements the UI color palette. The lighting is high-key and even, creating a soft, clay-like appearance to the skin tones. He exudes confidence and approachability, perfect for a collaborative team-focused application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCoKsvzSh8bBw6SA6sXjh09gI_TbILdQL4wFItw5uNQxfeRNthJFXP0G4NGRqojwThW19nfHvFsRoQjerhve-Ht3wC2jb5YIfnhDaPsrOgSyq06-MIJ9nue8XZHXCIPervnaO3R5VOdXvkNulhSK4h2XNYmGQr7Pe9iENxoZDJoKVdrk5fxMTKX3FaA3GNEmWkzzeEwn7d3Jsv2Rz1y7ttNKw4HHbTyv51jOSuckCmpw8ZCaA-YQRyWPsonlIE8WBMUUDrCbzV5sQ"/>
+<img class="inline-block h-10 w-10 rounded-full ring-4 ring-[#F0F2F5]" data-alt="Close-up portrait of a diverse male team member with a warm smile. The setting is a minimalist, modern office with soft architectural lines and bright lighting. The color scheme is dominated by whites and soft neutrals, reflecting a serene and focused digital workspace. The overall aesthetic is clean, professional, and harmoniously aligned with a neumorphic design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEls-ZbNIThDgvXJ69trIS5F0DKQKVpEXujiWkH0nDbyFP-tSycwP_lcpZQLTeuw-pOonPhLupowCfqm1g8K6PzPN5dZc_79AUBV5SL7OK6zkFvPq4fd98Rtft9ekVi0iJndYho6KCXl1eq_oY41Aze_VAbBa4-xmLtFpCoiRqZZAo_yzuoaf6Q9GpJsVMf7_QH94zCO65Ejjw-BaGjF_lI4HsHRPzL38xzi06yTbADRAKoBThVAlB6X6yJbSQmCh5J1_fKssuZoY"/>
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 ring-4 ring-[#F0F2F5] text-slate-500 text-xs font-bold">+12</div>
+</div>
+</header>
+<!-- Form Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Form -->
+<div class="lg:col-span-2 neumorphic-convex rounded-[32px] p-8 md:p-10 space-y-8 bg-[#F0F2F5]">
+<div class="space-y-6">
+<!-- Full Name -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1">Full Name</label>
+<div class="neumorphic-concave rounded-2xl flex items-center px-4 py-1">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="person">person</span>
+<input class="w-full bg-transparent border-none focus:ring-0 py-3 text-on-surface placeholder:text-slate-400 font-body-md" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<!-- Email Address -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1">Email Address</label>
+<div class="neumorphic-concave rounded-2xl flex items-center px-4 py-1">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="mail">mail</span>
+<input class="w-full bg-transparent border-none focus:ring-0 py-3 text-on-surface placeholder:text-slate-400 font-body-md" placeholder="john@taskflow.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Role Dropdown -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1">Role</label>
+<div class="neumorphic-concave rounded-2xl flex items-center px-4 py-1 relative">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="badge">badge</span>
+<select class="w-full bg-transparent border-none focus:ring-0 py-3 text-on-surface appearance-none cursor-pointer font-body-md">
+<option>Project Manager</option>
+<option>Senior Developer</option>
+<option>UI/UX Designer</option>
+<option>Product Owner</option>
+<option>Marketing Lead</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 pointer-events-none text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Team Selection -->
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant px-1">Team Selection</label>
+<div class="neumorphic-concave rounded-2xl flex items-center px-4 py-1 relative">
+<span class="material-symbols-outlined text-slate-400 mr-3" data-icon="workspaces">workspaces</span>
+<select class="w-full bg-transparent border-none focus:ring-0 py-3 text-on-surface appearance-none cursor-pointer font-body-md">
+<option>Product Design</option>
+<option>Backend Engineering</option>
+<option>Quality Assurance</option>
+<option>Growth &amp; Sales</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 pointer-events-none text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="clay-button w-full py-4 rounded-2xl text-white font-headline-md flex items-center justify-center gap-3 transition-all">
+<span class="material-symbols-outlined" data-icon="send" style="font-variation-settings: 'FILL' 1;">send</span>
+                                Send Invitation
+                            </button>
+</div>
+</div>
+<!-- Right Column: Info & Preview -->
+<div class="space-y-8">
+<!-- Preview Card -->
+<div class="neumorphic-convex rounded-[32px] p-6 bg-[#F0F2F5] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[80px]" data-icon="contact_page">contact_page</span>
+</div>
+<h3 class="font-headline-md text-on-surface mb-4">Employee Preview</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-2xl neumorphic-concave flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-4xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<div>
+<div class="h-4 w-32 bg-slate-200 rounded-full mb-2"></div>
+<div class="h-3 w-24 bg-slate-100 rounded-full"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-400">STATUS</span>
+<span class="text-primary font-bold">PENDING</span>
+</div>
+<div class="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden neumorphic-concave">
+<div class="h-full w-1/3 bg-primary-container rounded-full" style="box-shadow: inset 0 2px 4px rgba(255,255,255,0.4);"></div>
+</div>
+<p class="text-[10px] text-slate-400 text-center italic">Invitation will expire in 48 hours</p>
+</div>
+</div>
+<!-- Instructions -->
+<div class="neumorphic-convex rounded-[32px] p-6 bg-[#F0F2F5]">
+<h4 class="font-label-md text-on-surface mb-4">Quick Guide</h4>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-xs text-slate-500">Ensure the email address is corporate for better security.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-xs text-slate-500">New employees get default 'Viewer' access until confirmed.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-xs text-slate-500">Teams determine which Slack channels they're added to.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#F0F2F5] border-t border-white/50 shadow-[0_-10px_20px_rgba(209,217,230,0.5)] flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-manrope font-semibold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-[10px] font-manrope font-semibold">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#4FB3B3] bg-[#F0F2F5] shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] rounded-2xl px-5 py-2 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-[10px] font-manrope font-semibold">Team</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 p-2 hover:text-[#4FB3B3] active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-[10px] font-manrope font-semibold">Notifications</span>
+</a>
+</nav>
+</body></html>
