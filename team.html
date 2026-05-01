@@ -131,31 +131,38 @@
 <span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
 <input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md outline-none" placeholder="Search teams..." type="text"/>
 </div>
-<div class="neumorphic-convex p-2 rounded-full hover:scale-105 transition-transform cursor-pointer">
-<span class="material-symbols-outlined text-[#4FB3B3]" data-icon="account_circle">account_circle</span>
+<div class="neumorphic-convex w-10 h-10 p-2 rounded-full hover:scale-105 transition-transform cursor-pointer neumorphic-button">
+<a href="notifications.html">
+    <span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+</a>
+</div>
+<div class="neumorphic-convex p-0.5 rounded-full cursor-pointer hover:scale-105 transition-transform">
+      <a href="user_profile.html">
+        <img alt="User Avatar" class="w-9 h-9 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1k3MDuCKMjT8hNNFxw8L0Dxpeq5Kpc_n7nqETCrTkmMuzc4rUSZsfbaIq84mKznR2LKQozCaAOH-6pTh4POza4wFPHc8PEcHtFEQnJGZtRYStfqXlLBpUti5ifUctdVEV9zewXgikL5rGbVj_YKoySEa1aYUs-5yIOVB92B2Rc_t0bde4423y82mez_1KS7BP09imHtRrzUZxqT05XHfJYg_Nv8zY0oZdnSES-WuQhvLziojCdZPXc5XsZfDcfcFOWyWmE8i_0-I"/>
+      </a>
 </div>
 </div>
 </header>
 <div class="flex min-h-screen">
 <aside class="hidden md:flex flex-col w-64 p-6 gap-6 sticky top-[73px] h-[calc(100vh-73px)]">
 <nav class="flex flex-col gap-4">
-<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="#">
+<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="dashboard.html">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span class="font-label-md text-label-md">Dashboard</span>
 </a>
-<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="#">
+<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="task.html">
 <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
 <span class="font-label-md text-label-md">Tasks</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#4FB3B3] bg-[#F0F2F5] shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] rounded-2xl px-5 py-3 flex-row items-center gap-3 w-full" href="#">
+<a class="flex flex-col items-center justify-center text-[#4FB3B3] bg-[#F0F2F5] shadow-[inset_4px_4px_8px_#D1D9E6,inset_-4px_-4px_8px_#FFFFFF] rounded-2xl px-5 py-3 flex-row items-center gap-3 w-full" href="team.html">
 <div class="flex items-center gap-3 w-full">
 <span class="material-symbols-outlined" data-icon="group">group</span>
 <span class="font-label-md text-label-md">Team</span>
 </div>
 </a>
-<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="font-label-md text-label-md">Notifications</span>
+<a class="flex items-center gap-3 p-3 rounded-2xl text-slate-500 hover:text-[#4FB3B3] transition-all" href="analityc.html">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-label-md text-label-md">Analytics</span>
 </a>
 </nav>
 <div class="mt-auto neumorphic-convex p-4 rounded-3xl bg-primary-container text-white">
@@ -286,11 +293,11 @@
 </main>
 </div>
 <nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#F0F2F5] border-t border-white/50 shadow-[0_-10px_20px_rgba(209,217,230,0.5)] flex justify-around items-center px-4 pb-6 pt-3">
-<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="#">
+<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="dashboard.html">
 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
 <span class="text-[10px] font-manrope font-semibold">Dashboard</span>
 </a>
-<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="#">
+<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="task.html">
 <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
 <span class="text-[10px] font-manrope font-semibold">Tasks</span>
 </a>
@@ -298,9 +305,9 @@
 <span class="material-symbols-outlined" data-icon="group">group</span>
 <span class="text-[10px] font-manrope font-semibold">Team</span>
 </a>
-<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="#">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="text-[10px] font-manrope font-semibold">Notifications</span>
+<a class="flex flex-col items-center justify-center text-slate-500 p-2" href="analityc.html">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px] font-manrope font-semibold">Analytics</span>
 </a>
 </nav>
 </body></html>
