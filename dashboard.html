@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neumorphic-convex {
+            box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+        }
+        .neumorphic-concave {
+            box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+        }
+        .neumorphic-convex-hover:hover {
+            box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+            transform: scale(1.02);
+        }
+        .clay-primary {
+            background-color: #4FB3B3;
+            box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.4), 4px 4px 8px #d1d9e6;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#91f3f2",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#74d6d6",
+                        "surface-dim": "#d6dbda",
+                        "primary-container": "#4fb3b3",
+                        "surface-container": "#eaefee",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e5e9e8",
+                        "surface-container-highest": "#dfe3e3",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "tertiary": "#914c27",
+                        "on-background": "#181c1c",
+                        "on-surface": "#181c1c",
+                        "secondary-container": "#d0e1fb",
+                        "secondary-fixed": "#d3e4fe",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#733512",
+                        "surface-tint": "#006a6a",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-secondary-container": "#54647a",
+                        "secondary": "#505f76",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "primary": "#006a6a",
+                        "outline-variant": "#bdc9c8",
+                        "on-primary-fixed": "#002020",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#351000",
+                        "surface-variant": "#dfe3e3",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#3e4949",
+                        "outline": "#6e7979",
+                        "tertiary-container": "#e48f65",
+                        "surface": "#f6faf9",
+                        "inverse-surface": "#2c3131",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f50",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "background": "#f6faf9",
+                        "surface-bright": "#f6faf9",
+                        "on-tertiary-container": "#632906",
+                        "inverse-on-surface": "#edf2f1",
+                        "inverse-primary": "#74d6d6",
+                        "on-primary-container": "#004242",
+                        "surface-container-low": "#f0f4f4",
+                        "tertiary-fixed": "#ffdbcc"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 font-body-md text-on-background min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col z-50 bg-slate-100 dark:bg-slate-900 h-screen w-64 border-r-0 rounded-r-[32px] px-6 py-8 space-y-4 shadow-[10px_10px_20px_#d1d9e6,-10px_-10px_20px_#ffffff] dark:shadow-none">
+<div class="mb-10 flex items-center px-4">
+<span class="text-[#4FB3B3] font-black uppercase tracking-widest text-xl">TaskFlow</span>
+</div>
+<div class="flex flex-col gap-6 flex-grow">
+<nav class="space-y-4">
+<a class="flex items-center gap-3 p-4 bg-slate-100 shadow-[inset_6px_6px_12px_#d1d9e6,inset_-6px_-6px_12px_#ffffff] text-[#4FB3B3] rounded-2xl font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 transition-colors hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl font-manrope font-semibold text-sm" href="task.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 transition-colors hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl font-manrope font-semibold text-sm" href="team.html">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Team</span>
+</a>
+<a href="analityc.html" class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 transition-colors hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl font-manrope font-semibold text-sm" >
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a href="user_profile.html" class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 transition-colors hover:shadow-[4px_4px_8px_#d1d9e6,-4px_-4px_8px_#ffffff] rounded-2xl font-manrope font-semibold text-sm">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-2">
+<a href="add_new_task.html" class="w-full clay-primary text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-all no-underline block text-center">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Create New Task</span>
+</a>
+</div>
+</div>
+<div class="mt-auto space-y-4 pt-8">
+<div class="flex items-center gap-3 p-4 rounded-2xl neumorphic-convex">
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-[#4FB3B3]" data-alt="A high-quality professional portrait of a modern office worker with a friendly expression. The lighting is bright and clean, consistent with a soft light-mode user interface. The background is a soft, blurred office environment with a palette of whites, teals, and soft grays, mirroring a clean task management application aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXSFvs1tu2VQ2ryFYhYpnv9_1HyGQMnjwBG27aUaRzOxCf5JUq76y7L_HjeqbsJwjcmbY0noGz8V11BNo3u1vLrgLRktews0Q_k6FOpIcysQiKEwuEznZThCjXjytNAG4DWJj7Ka6YHOBSpehNwQFLs3ckhwYYvg2go1uGXr0gZh1GA4j-gOA8XYnLHGj-QKTE_pnTUSaFndMsF1-sgM5ncuhH8gDv5AD51JqVkUsTnFlpKh8cdNTSQJtbx_vNesuk97oVAFfblH4"/>
+<div>
+<p class="font-bold text-sm text-on-background">Hanis Siddiq</p>
+<p class="text-xs text-slate-500">Pro Plan</p>
+</div>
+</div>
+<a class="flex items-center gap-3 p-4 text-slate-500 hover:text-slate-700 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col h-screen overflow-y-auto">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-40 bg-slate-100/80 backdrop-blur-md shadow-[0px_4px_10px_rgba(209,217,230,0.5)] dark:shadow-none">
+<div class="flex items-center gap-4 w-1/3">
+<div class="flex-grow neumorphic-concave rounded-full flex items-center px-4 py-2 bg-slate-100">
+<span class="material-symbols-outlined text-slate-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-manrope" placeholder="Search tasks..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<a href="notifications.html" class="material-symbols-outlined text-slate-500 hover:text-[#4FB3B3] transition-colors">notifications</a>
+<button href="#" class="material-symbols-outlined text-slate-500 hover:text-[#4FB3B3] transition-colors">settings</button>
+<div class="w-10 h-10 rounded-full neumorphic-convex p-0.5">
+<img alt="User Avatar" class="w-full h-full rounded-full" data-alt="A clean, minimalist profile avatar of a young professional man in a bright setting. The image is designed to fit a sleek task management app, with a background consisting of soft teal and white gradients that enhance the light-mode UI. The lighting is even and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9yXSDztbnPNZtnMhS37WJiQ95LUhEB6BJmzc0kY-r2zGtCSaMdb2-f34Ma2zVP58xRUr472ECkg3hzXGby9cfEImC0fyXfchKC5SA30aNomQDvbKYEoMeg-CdkXhXT1IXQ46eoQ6oglCuzWbo-n6TWfcsTQ8fcPOWyzUomN2DAi6iOSxTRlHalQdUkj4d40OOq1h-s-DQegVaWBLoPVpmUFF8qnffczidE0hb-9-bcQfEQTLOrvfibgJH5FZKiIlUkgpUNpI0oaw"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<section class="p-8 space-y-8">
+<div class="flex flex-col gap-2">
+<h1 class="font-headline-xl text-on-background">Hello, Hanis!</h1>
+<p class="font-body-lg text-slate-500">You have 8 tasks to complete today. Keep it up!</p>
+</div>
+<!-- Bento Grid Summary -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="neumorphic-convex p-6 rounded-[32px] space-y-4 flex flex-col justify-between neumorphic-convex-hover transition-all">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-slate-100 rounded-2xl neumorphic-concave text-[#4FB3B3]">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Total Tasks</span>
+</div>
+<div>
+<p class="text-4xl font-extrabold text-on-background">24</p>
+<p class="text-sm text-slate-500 mt-1">+3 this week</p>
+</div>
+</div>
+<div class="neumorphic-convex p-6 rounded-[32px] space-y-4 flex flex-col justify-between neumorphic-convex-hover transition-all">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-slate-100 rounded-2xl neumorphic-concave text-blue-500">
+<span class="material-symbols-outlined">pending</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">In Progress</span>
+</div>
+<div>
+<p class="text-4xl font-extrabold text-on-background">12</p>
+<div class="w-full h-2 bg-slate-200 rounded-full mt-4 neumorphic-concave overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full w-1/2 clay-primary"></div>
+</div>
+</div>
+</div>
+<div class="neumorphic-convex p-6 rounded-[32px] space-y-4 flex flex-col justify-between neumorphic-convex-hover transition-all">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-slate-100 rounded-2xl neumorphic-concave text-green-500">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Completed</span>
+</div>
+<div>
+<p class="text-4xl font-extrabold text-on-background">08</p>
+<p class="text-sm text-green-500 mt-1">Excellent progress</p>
+</div>
+</div>
+<!-- Small Calendar Widget -->
+<div class="neumorphic-convex p-6 rounded-[32px] bg-slate-100 lg:col-span-1">
+<div class="flex justify-between items-center mb-4">
+<span class="font-bold text-sm text-on-background">October 2026</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-xs p-1 neumorphic-convex rounded-full cursor-pointer">chevron_left</span>
+<span class="material-symbols-outlined text-xs p-1 neumorphic-convex rounded-full cursor-pointer">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center text-[10px] font-bold text-slate-400 mb-2">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center text-xs font-semibold">
+<span class="text-slate-300">28</span><span class="text-slate-300">29</span><span class="text-slate-300">30</span><span class="p-1 neumorphic-convex rounded-lg">1</span><span class="p-1 neumorphic-convex rounded-lg">2</span><span class="p-1 neumorphic-convex rounded-lg">3</span><span class="p-1 neumorphic-convex rounded-lg">4</span>
+<span class="p-1 neumorphic-convex rounded-lg">5</span><span class="p-1 neumorphic-convex rounded-lg">6</span><span class="p-1 bg-[#4FB3B3] text-white rounded-lg shadow-md">7</span><span class="p-1 neumorphic-convex rounded-lg">8</span><span class="p-1 neumorphic-convex rounded-lg">9</span><span class="p-1 neumorphic-convex rounded-lg">10</span><span class="p-1 neumorphic-convex rounded-lg">11</span>
+</div>
+</div>
+</div>
+<!-- Dashboard Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recent Tasks List -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="font-headline-md text-on-background">Recent Tasks</h2>
+<button class="text-sm font-bold text-[#4FB3B3] hover:underline transition-all">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="neumorphic-convex p-5 rounded-[24px] flex items-center justify-between group neumorphic-convex-hover transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-5 h-5 neumorphic-concave rounded-md border-2 border-transparent flex items-center justify-center group-hover:border-[#4FB3B3] transition-colors">
+<span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-bold text-on-background">Update Brand Styleguide</h3>
+<p class="text-xs text-slate-400">Design System • Due in 2 hours</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Member" class="w-8 h-8 rounded-full border-2 border-slate-100" data-alt="Close-up professional headshot of a female graphic designer in a bright, modern studio. The color palette features soft teals and neutral whites, reflecting the neumorphic UI theme. The lighting is airy and high-key, conveying a sense of organized productivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe29JA7D5NljNmzO6VoV4xAZYpHY4rcD57sLjZvU08dsGX26JCnqJlOMF8JBqOB6Tcfqy_4ZkYi2axNJxJlKT4ROG-keuTv7qvJzf6HQ3WHSyHq31SMeFyYXFl9TCgiYbjPfxdSn64yHh87n1wPlngQRohMLTCl31N-lMZ0Etvxp816gr0NOuE5sNPeArfhq6XLerFKbfzAHaFJEerykm23RWQ1GPFdI7SInbjzxbhaA014bGApLsAiUYATcHvK7xT1iIagDfHrAg"/>
+<img alt="Member" class="w-8 h-8 rounded-full border-2 border-slate-100" data-alt="Close-up professional headshot of a male software engineer with a soft smile. The portrait is taken in a well-lit office with a clean background. The aesthetic focuses on soft shadows and a light-mode color scheme of whites and teals, matching the application's visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTGl5F-QFhDnL-w4rH9CI2Zd5W7FZZBJ2JCdW3UUTxKDb8zByhf6xO12K8H5ceHRJqKlQuJksITMWfqYHAx3wOv-mLWra0Rntl9PvIL1KGGLtGGX_UhCzitvgQMMZrbDvmA5_jqW8h3SEtmcyhOFilOVUlET0yQR1Z_CrQLyT8xP6VdiP8_8FklQrRp2nsU5XgMiR-u0kB8w1aiqj890DEhQ7wJCXbS7kXewXjHoNDF14KSZygGPlCz93ro92J08yXhkcBAvnBa4I"/>
+</div>
+<span class="material-symbols-outlined text-slate-300">more_vert</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="neumorphic-convex p-5 rounded-[24px] flex items-center justify-between group neumorphic-convex-hover transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-5 h-5 neumorphic-concave rounded-md border-2 border-transparent flex items-center justify-center bg-[#4FB3B3] text-white">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<h3 class="font-bold text-on-background line-through opacity-50">Monthly Finance Review</h3>
+<p class="text-xs text-slate-400">Management • Completed</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-[10px] font-bold uppercase tracking-wider">Done</span>
+<span class="material-symbols-outlined text-slate-300">more_vert</span>
+</div>
+</div>
+<!-- Task Item -->
+<a href="task_detail.html" class="block text-decoration-none">
+<div class="neumorphic-convex p-5 rounded-[24px] flex items-center justify-between group neumorphic-convex-hover transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-5 h-5 neumorphic-concave rounded-md border-2 border-transparent flex items-center justify-center group-hover:border-[#4FB3B3] transition-colors"></div>
+<div>
+<h3 class="font-bold text-on-background">Redesign Client Dashboard - Onboarding</h3>
+<p class="text-xs text-slate-400">Project X • Tomorrow, 10:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-[10px] font-bold uppercase tracking-wider">Urgent</span>
+<span class="material-symbols-outlined text-slate-300">more_vert</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Asymmetric Secondary Area -->
+<div class="space-y-8">
+<div class="neumorphic-convex p-6 rounded-[32px] space-y-6">
+<h2 class="font-headline-md text-on-background">Activity</h2>
+<div class="relative pl-6 border-l-2 border-slate-200 space-y-8">
+<div class="relative">
+<div class="absolute -left-[31px] top-0 w-3 h-3 rounded-full bg-[#4FB3B3] ring-4 ring-slate-100"></div>
+<p class="text-xs font-bold text-slate-400 mb-1">9:24 AM</p>
+<p class="text-sm font-semibold text-on-background">You moved <span class="text-[#4FB3B3]">Mobile App Specs</span> to Completed.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[31px] top-0 w-3 h-3 rounded-full bg-slate-300 ring-4 ring-slate-100"></div>
+<p class="text-xs font-bold text-slate-400 mb-1">Yesterday</p>
+<p class="text-sm font-semibold text-on-background">Sarah commented on <span class="text-[#4FB3B3]">Dashboard Mockups</span>.</p>
+</div>
+</div>
+</div>
+<div class="neumorphic-concave p-8 rounded-[32px] bg-gradient-to-br from-slate-50 to-slate-100 text-center space-y-4">
+<div class="w-16 h-16 bg-white rounded-2xl mx-auto flex items-center justify-center neumorphic-convex">
+<span class="material-symbols-outlined text-[#4FB3B3] text-3xl">lightbulb</span>
+</div>
+<h3 class="font-bold text-on-background">Focus Tip</h3>
+<p class="text-sm text-slate-500 italic">"Try the Pomodoro technique to maintain high focus for longer periods."</p>
+<button class="text-xs font-bold text-[#4FB3B3] uppercase tracking-widest pt-2">Learn More</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
